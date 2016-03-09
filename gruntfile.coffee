@@ -16,7 +16,7 @@ module.exports = (grunt) ->
                 tasks: 'default'
         babel:
             options:
-                plugins: ['transform-es2015-modules-systemjs']
+                plugins: ['transform-react-jsx', 'transform-es2015-modules-systemjs', 'transform-object-assign']
                 presets: ['es2015']
                 moduleIds: true,
                 getModuleId: (moduleName) -> return pkg.module + '/' + moduleName
