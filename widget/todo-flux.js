@@ -105,7 +105,7 @@ function todos(state = initialState.todos, action) {
         return state;
     }
 }
-/* eslint-disable no-invalid-this */
+/* eslint-disable no-invalid-this,no-unused-vars */
 class Todo extends React.Component {
     render(){
         let self = this;
@@ -120,7 +120,7 @@ class Todo extends React.Component {
         return (<div className="todo">{list}</div>);
     }
 }
-/* eslint-enable no-invalid-this */
+/* eslint-enable no-invalid-this,no-unused-vars */
 class App {
     run() {
         let store = createStore(combineReducers({
