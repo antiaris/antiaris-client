@@ -6,6 +6,10 @@ module.exports = (grunt) ->
         pkg: pkg
         clean:
             all: 'es5'
+        eslint:
+            options:
+                configFile: '.eslintrc'
+            widget: 'widget/*.js'
         watch:
             widget:
                 files: 'widget/*.js'
@@ -21,4 +25,4 @@ module.exports = (grunt) ->
                 cwd: 'widget'
                 src: '*.js'
                 dest: 'es5'
-    grunt.registerTask 'default', ['clean', 'babel']
+    grunt.registerTask 'default', ['clean', 'eslint','babel']
