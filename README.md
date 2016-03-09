@@ -1,5 +1,5 @@
-# excelent-web-framework
+# excellent-web-framework
 
-This is an attempt to a excelent web framework which including ECMAScript6/isomorphic javascript/virtual dom/modular resource.
+This is an attempt to a excelent web framework which includes `ECMAScript6`/`isomorphic javascript`/`virtual dom`/`modular resource`.
 
-It's still under developing.
+I'm still working on it.
