@@ -11,7 +11,7 @@
  */
 // Based off https://github.com/ForbesLindesay/umd/blob/master/template.js
 
-import {React} from 'ewf/widget/react';
+import {React} from 'ewf/libs/react';
 
 let ReactDOM = React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 export {ReactDOM};

@@ -11,8 +11,8 @@ module.exports = (grunt) ->
                 configFile: '.eslintrc'
             widget: 'widget/*.js'
         watch:
-            widget:
-                files: 'widget/*.js'
+            js:
+                files: '{libs,widget}/*.js'
                 tasks: 'default'
         babel:
             options:
@@ -23,6 +23,11 @@ module.exports = (grunt) ->
             widget:
                 expand: true
                 cwd: 'widget'
+                src: '*.js'
+                dest: 'es5'
+            libs:
+                expand: true
+                cwd: 'libs'
                 src: '*.js'
                 dest: 'es5'
     grunt.registerTask 'default', ['clean', 'eslint','babel']

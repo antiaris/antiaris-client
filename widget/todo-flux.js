@@ -10,12 +10,12 @@
  * @version 1.0.0
  * @since 1.0.0
  */
-import {Redux} from 'ewf/widget/redux';
+import {Redux} from 'ewf/libs/redux';
 import {unique} from 'ewf/widget/unique';
-import {React} from 'ewf/widget/react';
-import {ReactDOM} from 'ewf/widget/react-dom';
+import {React} from 'ewf/libs/react';
+import {ReactDOM} from 'ewf/libs/react-dom';
 /* eslint-disable no-unused-vars */
-import {ReactRedux} from 'ewf/widget/react-redux';
+import {ReactRedux} from 'ewf/libs/react-redux';
 /* eslint-enable no-unused-vars */
 
 const ACTION_TYPES = {

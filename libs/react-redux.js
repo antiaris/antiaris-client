@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import {React} from 'ewf/widget/react';
-import {Redux} from 'ewf/widget/redux';
+import {React} from 'ewf/libs/react';
+import {Redux} from 'ewf/libs/redux';
 
 var r = function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_12__) {
 return /******/ (function(modules) { // webpackBootstrap
