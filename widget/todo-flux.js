@@ -46,7 +46,8 @@ function todoAddAction(text) {
         type: ACTION_TYPES.ADD,
         payload: {
             text: text,
-            id: unique()
+            id: unique(),
+            time: Date.now()
         }
     };
 }
@@ -84,7 +85,7 @@ function todos(state = initialState.todos, action) {
         newState = state.slice();
         newState.push({
             text: action.payload.text,
-            time: Date.now(),
+            time: action.payload.time,
             id: action.payload.id,
             complete: false
         });
