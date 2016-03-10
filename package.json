@@ -1,15 +1,16 @@
 {
-  "name": "excelent-web-framework",
+  "name": "excellent-web-framework",
   "version": "1.0.0",
   "module": "ewf",
-  "description": "excelent web framework",
+  "description": "excellent web framework",
   "main": "index.js",
   "scripts": {
-    "build": "grunt"
+    "build": "grunt",
+    "serve": "node --harmony serve.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yanni4night/excelent-web-framework.git"
+    "url": "git+https://github.com/yanni4night/excellent-web-framework.git"
   },
   "keywords": [
     "web"
@@ -17,9 +18,9 @@
   "author": "yanni4night@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yanni4night/excelent-web-framework/issues"
+    "url": "https://github.com/yanni4night/excellent-web-framework/issues"
   },
-  "homepage": "https://github.com/yanni4night/excelent-web-framework#readme",
+  "homepage": "https://github.com/yanni4night/excellent-web-framework#readme",
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-systemjs": "^6.6.5",
     "babel-plugin-transform-object-assign": "^6.5.0",

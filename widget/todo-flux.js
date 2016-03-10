@@ -10,10 +10,13 @@
  * @version 1.0.0
  * @since 1.0.0
  */
-import {createStore, combineReducers} from 'ewf/widget/redux';
+import {Redux} from 'ewf/widget/redux';
 import {unique} from 'ewf/widget/unique';
 import {React} from 'ewf/widget/react';
 import {ReactDOM} from 'ewf/widget/react-dom';
+/* eslint-disable no-unused-vars */
+import {ReactRedux} from 'ewf/widget/react-redux';
+/* eslint-enable no-unused-vars */
 
 const ACTION_TYPES = {
     ADD: 'ADD',
@@ -110,42 +113,77 @@ function todos(state = initialState.todos, action) {
 /* eslint-disable no-invalid-this,no-unused-vars */
 class Todo extends React.Component {
     render(){
-        let self = this;
-        let list = this.props.state.todos.map(function(todo){
+        const {deleteAction, completeAction} = this.props;
+        const list = this.props.todos.map(function(todo){
             let className = ['todo-item'];
             if(todo.complete){
                 className.push('complete');
             }
             className = className.join(' ');
-            return (<div key={todo.id} className={className}>{todo.text} <a href="#" onClick={()=>{self.props.onDelete(todo.id);}}>X</a> <a href="#" onClick={()=>{self.props.onComplete(todo.id);}}>Y</a></div>);
+            return (<div key={todo.id} className={className}>{todo.text} <a href="#" onClick={()=>{deleteAction(todo.id);}}>X</a> <a href="#" onClick={()=>{completeAction(todo.id);}}>Y</a></div>);
         });
         return (<div className="todo">{list}</div>);
     }
 }
 /* eslint-enable no-invalid-this,no-unused-vars */
 class App {
-    run() {
-        let store = createStore(combineReducers({
+    constructor(){
+        this.el = document.querySelector('#todo-container');
+    }
+    runWithoutConnect() {
+
+        const store = Redux.createStore(Redux.combineReducers({
             sortBy, todos
         }));
-
-        let onDelete = (id) => {
-            store.dispatch(todoDeleteAction(id));
-        };
-        let onComplete = (id) => {
-           store.dispatch(todoCompleteAction(id));
-        };
-
-        let refresh = () => {
-            ReactDOM.render(<Todo state={store.getState()} onDelete={onDelete} onComplete={onComplete}/>, document.querySelector('#todo-container'));
-        };
 
         store.dispatch(todoAddAction('Study meteor'));
         store.dispatch(todoAddAction('Study flux'));
         store.dispatch(sortAction(SORT_BY.DESC));
 
-        refresh();
-        store.subscribe(refresh);
+        const onDelete = (id) => {
+            store.dispatch(todoDeleteAction(id));
+        };
+
+        const onComplete = (id) => {
+           store.dispatch(todoCompleteAction(id));
+        };
+
+        const render = () => {
+             ReactDOM.render(<Todo {...store.getState()} deleteAction={onDelete} completeAction={onComplete}/>, this.el);
+        };
+
+        store.subscribe(render);
+        render();
+    }
+    runWithConnect() {
+        const store = Redux.createStore(Redux.combineReducers({
+            sortBy, todos
+        }));
+
+        store.dispatch(todoAddAction('Study meteor'));
+        store.dispatch(todoAddAction('Study flux'));
+        store.dispatch(sortAction(SORT_BY.DESC));
+
+        const mapStateToProps = (state) => {
+            return state;
+        };
+
+        const mapDispatchToProps = (dispatch) => {
+            return {
+                addAction: Redux.bindActionCreators(todoAddAction, dispatch),
+                deleteAction: Redux.bindActionCreators(todoDeleteAction, dispatch),
+                completeAction: Redux.bindActionCreators(todoCompleteAction, dispatch),
+                sortAction: Redux.bindActionCreators(sortAction, dispatch)
+            };
+        };
+        /* eslint-disable no-unused-vars */
+        const Provider = ReactRedux.Provider;
+
+        const TodoContainer = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(Todo);
+        /* eslint-enable no-unused-vars */
+        ReactDOM.render(<Provider store={store}>
+            <TodoContainer></TodoContainer>
+        </Provider>, this.el);
     }
 }
 

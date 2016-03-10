@@ -873,12 +873,5 @@ function r() {
         ])
 }
 
-var R = r();
-var applyMiddleware = R.applyMiddleware;
-var bindActionCreators = R.bindActionCreators;
-var combineReducers = R.combineReducers;
-var compose = R.compose;
-var createStore = R.createStore;
-export {
-    applyMiddleware, bindActionCreators, combineReducers, compose, createStore
-};
+var Redux = r();
+export {Redux};
