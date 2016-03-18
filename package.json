@@ -13,7 +13,8 @@
     "url": "git+https://github.com/yanni4night/excellent-web-framework.git"
   },
   "keywords": [
-    "web"
+    "web",
+    "framework"
   ],
   "author": "yanni4night@gmail.com",
   "license": "MIT",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/yanni4night/excellent-web-framework#readme",
   "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.6.5",
     "babel-plugin-transform-object-assign": "^6.5.0",
     "babel-plugin-transform-react-jsx": "^6.6.5",

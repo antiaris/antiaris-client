@@ -5,29 +5,34 @@ module.exports = (grunt) ->
     grunt.initConfig
         pkg: pkg
         clean:
-            all: 'es5'
+            all: ['output']
         eslint:
             options:
                 configFile: '.eslintrc'
-            widget: 'widget/*.js'
+            all:[ '{server,client,common}/*.{js,jsx}']
         watch:
             js:
-                files: '{libs,widget}/*.js'
+                files: '{server,client,common}/*.{js,jsx}'
                 tasks: 'default'
         babel:
             options:
-                plugins: ['transform-react-jsx', 'transform-es2015-modules-systemjs', 'transform-object-assign']
                 presets: ['es2015']
-                moduleIds: true,
-                getModuleId: (moduleName) -> return pkg.module + '/' + moduleName
-            widget:
+            server:
+                options:
+                    plugins: ['transform-react-jsx', 'transform-es2015-modules-commonjs', 'transform-object-assign']
                 expand: true
-                cwd: 'widget'
-                src: '*.js'
-                dest: 'es5'
-            libs:
+                cwd: '.'
+                src: ['{server,common,lib}/*.{js,jsx}']
+                dest: 'output/server'
+                ext: '.js'
+            client:
+                options:
+                    moduleIds: true,
+                    getModuleId: (moduleName) -> return pkg.module + ':' + moduleName
+                    plugins: ['transform-react-jsx', 'transform-es2015-modules-systemjs', 'transform-object-assign']
                 expand: true
-                cwd: 'libs'
-                src: '*.js'
-                dest: 'es5'
-    grunt.registerTask 'default', ['clean', 'eslint','babel']
+                cwd: '.'
+                src: ['{client,common,lib}/*.{js,jsx}']
+                dest: 'output/client'
+                ext: '.js'
+    grunt.registerTask 'default', ['clean', 'eslint', 'babel']

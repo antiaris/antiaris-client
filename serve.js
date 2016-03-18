@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016 tieba.baidu.com
+ * Copyright (C) 2016 yanni4night.com
  * serve.js
  *
  * changelog
@@ -13,10 +13,6 @@ var app = require('koa')();
 var router = require('koa-router')();
 var koaBody = require('koa-body')();
 
-app.use(require('koa-static')('.', {
-    gzip: true
-}));
-
 router.get('/', koaBody,
     function* (next) {
         this.body = require('fs').readFileSync('./index.html', {
@@ -26,5 +22,9 @@ router.get('/', koaBody,
 );
 
 app.use(router.routes());
+
+app.use(require('koa-static')('.', {
+    gzip: true
+}));
 
 app.listen(3131);
