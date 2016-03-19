@@ -9,7 +9,7 @@
   * @version 1.0.0
   * @since 1.0.0
   */
-import Segment from '../common/Segment';
+import Segment from '../common/segment';
 import {ReactDOMServer} from '../lib/react-dom-server';
 
 ReactDOMServer.renderToString(<Segment/>);

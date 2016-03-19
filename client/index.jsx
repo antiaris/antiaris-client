@@ -10,7 +10,7 @@
   * @since 1.0.0
   */
 import {ReactDOM} from '../lib/react-dom';
-import Segment from '../common/Segment';
+import Segment from '../common/segment';
 
 
 ReactDOM.render(<Segment/>, document.querySelector('#container'));
