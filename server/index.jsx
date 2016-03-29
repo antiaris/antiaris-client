@@ -9,7 +9,8 @@
   * @version 1.0.0
   * @since 1.0.0
   */
-import Segment from '../common/segment';
+import {Segment} from '../common/segment';
+import {React} from '../lib/react';
 import {ReactDOMServer} from '../lib/react-dom-server';
 
-ReactDOMServer.renderToString(<Segment/>);
+export const index = () => ReactDOMServer.renderToString(<Segment/>);

@@ -12,14 +12,13 @@
 var app = require('koa')();
 var router = require('koa-router')();
 var koaBody = require('koa-body')();
+var serverRouter = require('./output/server/server/');
 
-router.get('/', koaBody,
-    function* (next) {
-        this.body = require('fs').readFileSync('./index.html', {
-            encoding: 'utf-8'
-        });
-    }
-);
+app.use(koaBody);
+
+router.get('/', function* (next) {
+    this.body = serverRouter.index();
+});
 
 app.use(router.routes());
 
