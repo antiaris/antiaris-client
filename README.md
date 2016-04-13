@@ -1,6 +1,6 @@
-# excellent-web-framework
+# antiaris-client
 
-An excellent web framework demo involves `ES2015`/`isomorphic javascript`/`virtual dom`/`modular resource`/`http chunk`.
+An web framework demo involves `ES2015`/`isomorphic javascript`/`virtual dom`/`modular resource`/`http chunk`.
 
 As you see, there are both sever modules and client modules in this project,meaning that it going to be an isomorphic architecture.
 

@@ -1,8 +1,8 @@
 {
-  "name": "excellent-web-framework",
+  "name": "antiaris-client",
   "version": "1.0.0",
   "module": "ewf",
-  "description": "excellent web framework",
+  "description": "Antiaris Client",
   "main": "index.js",
   "scripts": {
     "build": "grunt",
@@ -10,18 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yanni4night/excellent-web-framework.git"
+    "url": "git+https://github.com/antiaris/antiaris-client.git"
   },
   "keywords": [
     "web",
-    "framework"
+    "framework",
+    "antiaris"
   ],
   "author": "yanni4night@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yanni4night/excellent-web-framework/issues"
+    "url": "https://github.com/antiaris/antiaris-client/issues"
   },
-  "homepage": "https://github.com/yanni4night/excellent-web-framework#readme",
+  "homepage": "https://github.com/antiaris/antiaris-client#readme",
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.7.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.6.5",
