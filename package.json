@@ -21,6 +21,7 @@
   "homepage": "https://github.com/antiaris/antiaris-client#readme",
   "devDependencies": {},
   "dependencies": {
+    "antiaris-component": "^1.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "redux": "^3.5.2"
