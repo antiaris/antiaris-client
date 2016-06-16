@@ -1,6 +1,6 @@
-name: client
-url:
-  static_prefix: '/s?'
-src: src
-output: output
-binary_resource: png,jpg,jpeg,gif,bmp,swf,woff,woff2,ttf,eot,otf,cur
+NAMESPACE: client
+URL:
+  STATIC_PREFIX: '/s?'
+SRC: src
+OUTPUT: output
+BINARY_RESOURCE: webp,png,jpg,jpeg,gif,bmp,swf,woff,woff2,ttf,eot,otf,cur
