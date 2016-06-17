@@ -15,9 +15,11 @@ import ReactDOMServer from 'react-dom/server';
 
 import Nav from './component/nav/nav.jsx';
 
-export default function(router) {
-    router.get('/', (ctx, next) => {
-        ctx.body = ReactDOMServer.renderToString(<Nav text='Hello Client'/>);
+export default function (router) {
+    router.get('/', async function (ctx, next) {
+        const variable = await Promise.resolve(1);
+        ctx.body = ReactDOMServer.renderToString( < Nav text = 'Hello Client' / > );
         next();
     });
+
 };
