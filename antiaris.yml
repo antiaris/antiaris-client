@@ -3,5 +3,5 @@ URL:
   STATIC_PREFIX: '/s?'
 SRC: src
 OUTPUT: output
-IGNORE: 'package.json,*.md,LICENSE,AUTHORS,bower.json',
+IGNORE: package.json,*.md,LICENSE,AUTHORS,bower.json
 BINARY_RESOURCE: webp,png,jpg,jpeg,gif,bmp,swf,woff,woff2,ttf,eot,otf,cur
