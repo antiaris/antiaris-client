@@ -37,10 +37,10 @@ export default (router) => {
         const content = ReactDOMServer.renderToString(<Nav add={add}/>);
 
         ctx.body = nunjucks.renderString(tpl,{
-            content/*,
-            css: '/?' + ctx.comboCss(),
-            script: '/?' + ctx.comboScript(),
-            js: '/?' + ctx.comboJs()*/
+            content,
+            css: '/s?' + ctx.comboCss().join(),
+            script: '/s?' + ctx.comboScript().join(),
+            js: '/s?' + ctx.comboJs().join()
         })
 
         next();
