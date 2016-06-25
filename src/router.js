@@ -10,16 +10,39 @@
  * @since 0.1.0
  */
 'use strict';
+import fs from 'fs';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import Nav from './component/nav/nav.jsx';
 
-export default function (router) {
+import nunjucks from 'nunjucks';
+
+nunjucks.configure({autoescape: false});
+
+export default (router) => {
     router.get('/', async function (ctx, next) {
-        const variable = await Promise.resolve(1);
-        ctx.body = ReactDOMServer.renderToString( < Nav text = 'Hello Client' / > );
+        const {add} = ctx;
+
+        const tpl = await new Promise((resolve, reject) => {
+            fs.readFile(__dirname + '/view/index.html', 'utf-8', (err, content) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(content);
+                }
+            });
+        });
+
+        const content = ReactDOMServer.renderToString(<Nav add={add}/>);
+
+        ctx.body = nunjucks.renderString(tpl,{
+            content/*,
+            css: '/?' + ctx.comboCss(),
+            script: '/?' + ctx.comboScript(),
+            js: '/?' + ctx.comboJs()*/
+        })
+
         next();
     });
-
 };

@@ -14,9 +14,9 @@ import Base from '../base/base.jsx';
 
 export default class Nav extends Base {
     constructor(props) {
-        super(props, 'Nav');
+        super(props, 'nav');
     }
     render() {
-        return (<nav>{this.props.text}</nav>);
+        return (<nav>{this.props.text||'Default NAV'}</nav>);
     }
 }
