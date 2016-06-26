@@ -11,6 +11,7 @@
   */
 'use strict';
 import Base from '../base/base.jsx';
+import React from 'react';
 
 export default class Nav extends Base {
     constructor(props) {

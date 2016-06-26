@@ -38,9 +38,8 @@ export default (router) => {
 
         ctx.body = nunjucks.renderString(tpl,{
             content,
-            css: '/s?' + ctx.comboCss().join(),
-            script: '/s?' + ctx.comboScript().join(),
-            js: '/s?' + ctx.comboJs().join()
+            css: `<link rel="stylesheet" href="/s?` + ctx.comboCss().join() + `">`,
+            script: `<script src="/s?` + ctx.comboScript().join() +`"></script>`
         })
 
         next();
