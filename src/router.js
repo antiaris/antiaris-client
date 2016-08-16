@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016 yanni4night.com
+ * Copyright (C) 2016 antiaris.xyz
  * router.js
  *
  * changelog
@@ -10,7 +10,7 @@
  * @since 0.1.0
  */
 'use strict';
-import indexRouter from './router/index/index.jsx';
+import indexRouter from './router/index.jsx';
 
 export default (router) => {
     router.get('/', indexRouter);

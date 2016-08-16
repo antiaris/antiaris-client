@@ -10,14 +10,10 @@
   * @since 0.1.0
   */
 'use strict';
-import Base from '../base/base.jsx';
-import React from 'react';
+import React, {Component} from 'react';
 
-export default class Nav extends Base {
-    constructor(props) {
-        super(props, 'nav');
-    }
+export default class Nav extends Component {
     render() {
-        return (<nav>{this.props.text||'Default NAV'}</nav>);
+        return (<nav>{this.props.text || 'Default NAV'}</nav>);
     }
 }
