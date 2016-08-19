@@ -30,10 +30,15 @@ export default async (ctx, next) => {
 
     ctx.addScript('client:src/entry/index.jsx');
 
-    const content = ReactDOMServer.renderToString(<Nav/>);
+    const data = {
+        title: 'Antiaris is working!'
+    };
+
+    const content = ReactDOMServer.renderToString(<Nav {...data}/>);
 
     ctx.body = nunjucks.renderString(tpl, {
         content,
+        data: JSON.stringify(data),
         systemjs: ctx.getScript('client:src/lib/system.js'),
         style: ctx.comboStyle(),
         script: ctx.comboScript()

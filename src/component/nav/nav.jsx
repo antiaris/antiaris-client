@@ -13,7 +13,13 @@
 import React, {Component} from 'react';
 
 export default class Nav extends Component {
+    onClickHandler() {
+        console.log('on click');
+    }
     render() {
-        return (<nav>{this.props.text || 'Default NAV'}</nav>);
+        return (<nav ref="nav" onClick={this.onClickHandler}>{this.props.title || 'default nav title'}</nav>);
+    }
+    componentDidMount() {
+        this.refs.nav.style.fontSize = '30px';
     }
 }

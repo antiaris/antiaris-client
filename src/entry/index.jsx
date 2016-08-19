@@ -14,4 +14,6 @@ import Nav from '../component/nav/nav.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<Nav text="Hello Antiaris!"/>, document.querySelector('#react-dom'));
+const data = window.data;
+
+ReactDOM.render(<Nav {...data}/>, document.querySelector('#react-dom'));

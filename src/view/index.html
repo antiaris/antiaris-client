@@ -5,15 +5,17 @@
         <title>Antiaris Client Demo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="revised" value="yanni4night,2016/06/19"/>
+        <link rel="stylesheet" href="../lib/normalize.css"/>
         {{style}}
     </head>
     <body>
-        <div id="react-dom"></div>
+        <div id="react-dom">{{content}}</div>
     </body>
-    {{systemjs}}
+    <script src="../lib/system.js"></script>
     <script>
         System.config({});
         process = {env: 'production'};
+        data = {{data}};
     </script>
     {{script}}
     <script>
