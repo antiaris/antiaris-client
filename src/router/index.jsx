@@ -39,7 +39,6 @@ export default async (ctx, next) => {
     ctx.body = nunjucks.renderString(tpl, {
         content,
         data: JSON.stringify(data),
-        systemjs: ctx.getScript('client:src/lib/system.js'),
         style: ctx.comboStyle(),
         script: ctx.comboScript()
     })
